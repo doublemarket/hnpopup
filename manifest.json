@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Hacker News Popup",
   "short_name": "hnpopup",
-  "version": "0.2",
+  "version": "0.3",
   "description": "Shows how popular the article you're reading on Hacker News is",
   "icons" : {
     "128": "icon.png"

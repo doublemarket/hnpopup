@@ -9,7 +9,7 @@ function renderComment(comments) {
   var body = "";
   for (let comment of comments) {
     body += "<div class='comment'>";
-    body += "<p class='small'><a href='"+userBaseUrl+comment.user+"' target='_blank'>"+comment.user+"</a> "+comment.time_ago+"</p>";
+    body += "<p class='small'><a href='"+userBaseUrl+comment.user+"'>"+comment.user+"</a> "+comment.time_ago+"</p>";
     body += "<div class='comment-body'>"+comment.content+"</div>";
     if (comment.comments.length > 0) {
       body += "<div class='comment-child'>";
@@ -39,10 +39,10 @@ $(function () {
         var numComments = json.hits[0].num_comments;
         chrome.browserAction.setBadgeText({text:String(points)});
         chrome.storage.local.set({[queryUrl]: points+":"+tsNow}, function() {});
-        $('#search').html("<a href='"+searchBaseUrl+queryUrl+"' target='_blank'>"+hits + " item(s) found</a>");
-        $('#title').html("<a href='"+itemUrl+"' target='_blank'>"+json.hits[0].title+"</a>");
-        $('#url').html("<a href='"+json.hits[0].url+"' target='_blank'>"+json.hits[0].url+"</a>");
-        $('#item-info').html(points+" points by <a href='"+userBaseUrl+authorName+"' target='_blank'>"+authorName+"</a> "+timeago.format(json.hits[0].created_at)+" | "+numComments+" comments");
+        $('#search').html("<a href='"+searchBaseUrl+queryUrl+"'>"+hits + " item(s) found</a>");
+        $('#title').html("<a href='"+itemUrl+"'>"+json.hits[0].title+"</a>");
+        $('#url').html("<a href='"+json.hits[0].url+"'>"+json.hits[0].url+"</a>");
+        $('#item-info').html(points+" points by <a href='"+userBaseUrl+authorName+"'>"+authorName+"</a> "+timeago.format(json.hits[0].created_at)+" | "+numComments+" comments");
 
         fetch(hnApiBaseUrl+json.hits[0].objectID).then(function(response) {
           return response.json();
@@ -58,7 +58,7 @@ $(function () {
         chrome.storage.local.set({[queryUrl]: points+":"+tsNow}, function() {});
         $('#search').text("0 item found");
         var msg = "No item found for this page.";
-        msg += "<p><a href='"+submitBaseUrl+tab.url+"&t="+tab.title+"' target='_blank'>Submit this page to Hacker News.</a></p>";
+        msg += "<p><a href='"+submitBaseUrl+tab.url+"&t="+tab.title+"'>Submit this page to Hacker News.</a></p>";
         $('.body').html(msg);
       }
     }).catch(function(error) {
