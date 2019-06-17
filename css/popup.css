@@ -19,16 +19,8 @@ div.body {
   margin: 10pt 3pt 0 2pt;
 }
 
-div.comment {
-  margin-top: 5pt;
-}
-
 div.comment-child {
   margin-left: 10pt;
-}
-
-div.comment-fold {
-  margin: 0pt;
 }
 
 div.footer {
@@ -71,4 +63,12 @@ p.small-right {
 
 a:link, a:hover, a:active, a:visited {
   color: #828282;
+}
+
+summary {
+  font-size: 7pt;
+  font-weight: lighter;
+  color: #828282;
+  margin-top: 3pt;
+  margin-bottom: 7pt;
 }
