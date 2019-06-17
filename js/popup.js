@@ -8,8 +8,8 @@ const submitBaseUrl = "https://news.ycombinator.com/submitlink?u=";
 function renderComment(comments) {
   var body = "";
   for (let comment of comments) {
-    body += "<details open class='comment'>";
-    body += "<summary class='small'><a href='"+userBaseUrl+comment.user+"'>"+comment.user+"</a> "+comment.time_ago+"</summary>";
+    body += "<details open>";
+    body += "<summary><a href='"+userBaseUrl+comment.user+"'>"+comment.user+"</a> "+comment.time_ago+"</summary>";
     body += "<div class='comment-body'>"+comment.content+"</div>";
     if (comment.comments.length > 0) {
       body += "<div class='comment-child'>";
