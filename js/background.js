@@ -10,7 +10,7 @@ function setBadgeUsingCache(url) {
     var result = r[queryUrl]
     if (Object.keys(r).length > 0 && result.split(":")[1] > (tsNow - cacheTtl)) {
       var points = result.split(":")[0];
-      chrome.browserAction.setBadgeText({text:String(points)});
+      chrome.action.setBadgeText({text:String(points)});
     } else {
       fetch(apiBaseUrl+queryUrl).then(function(response) {
         if (!response.ok) {
@@ -24,7 +24,7 @@ function setBadgeUsingCache(url) {
         } else {
           points = 0;
         }
-        chrome.browserAction.setBadgeText({text:String(points)});
+        chrome.action.setBadgeText({text:String(points)});
         chrome.storage.local.set({[queryUrl]: points+":"+tsNow}, function() {
         });
       }).catch(function(error) {
@@ -34,7 +34,7 @@ function setBadgeUsingCache(url) {
   });
 }
 
-chrome.browserAction.setBadgeBackgroundColor({color:"#ff742b"});
+chrome.action.setBadgeBackgroundColor({color:"#ff742b"});
 
 chrome.tabs.onActivated.addListener(function(tabId, windowId) {
   chrome.tabs.query({active: true, lastFocusedWindow: true}, function(tabs) {

@@ -1,24 +1,23 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Hacker News Popup",
   "short_name": "hnpopup",
-  "version": "0.4",
+  "version": "0.5",
   "description": "Shows how popular the article you're reading on Hacker News is",
   "icons" : {
     "128": "icon.png"
   },
   "homepage_url": "https://github.com/doublemarket/hnpopup",
   "offline_enabled": false,
-  "browser_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_icon": "icon.png"
   },
   "background": {
-    "scripts": ["js/background.js"],
-    "persistent": false
+    "service_worker": "js/background.js"
   },
   "permissions": [
-    "tabs",
+    "activeTab",
     "storage"
   ]
 }
